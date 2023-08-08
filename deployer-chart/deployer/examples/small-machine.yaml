@@ -1,0 +1,10 @@
+name: small-machine-workflow
+
+image: python:3.9 
+
+gpu: false
+
+resources:
+  requests:
+    cpu: 0.5
+    memory: 256Mi

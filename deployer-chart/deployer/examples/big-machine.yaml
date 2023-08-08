@@ -1,0 +1,7 @@
+name: big-machine-workflow
+image: python:3.9 
+gpu: false
+resources:
+  requests:
+    cpu: 12
+    memory: 16G

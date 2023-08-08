@@ -1,0 +1,10 @@
+name: gpu-workflow
+
+image: python:3.9 
+
+gpu: true
+
+resources:
+  requests:
+    cpu: 0.5
+    memory: 256Mi

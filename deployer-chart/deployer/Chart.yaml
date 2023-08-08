@@ -1,0 +1,6 @@
+apiVersion: v2
+version: "0.1"
+name: deployer
+description: A Helm Chart to deploy Argo Workflows 
+type: application
+appVersion: "1.16.0"

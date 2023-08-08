@@ -1,0 +1,33 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Workflow
+metadata:
+  name: {{ .Values.name }}
+  generateName: {{ .Values.name }}
+spec:
+  entrypoint: main
+{{- if .Values.gpu }}
+  affinity:
+    nodeAffinity:
+      requiredDuringSchedulingIgnoredDuringExecution:
+        nodeSelectorTerms:
+        - matchExpressions:
+          - key: gpu-node
+            operator: In
+            values:
+            - "true"
+{{- end }}
+  templates:
+    - name: main
+      steps:
+        - - name: {{ .Values.name }}
+            template: {{ .Values.name }}
+
+    - name: {{ .Values.name }}
+      container:
+        image: {{ .Values.image }}
+        command: [ "python", "-c" ]
+        args: [ "print('Hello World')" ]
+        resources:
+          requests:
+            memory: {{ .Values.resources.requests.memory }}
+            cpu: {{ .Values.resources.requests.cpu }}
