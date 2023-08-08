@@ -10,6 +10,8 @@ The simplest way to use this is use the helm CLI:
 
 To create your own file, copy the `values.yaml` file in this directory and custoimize the variables to your liking.
 
+To ensure the workload runs on a node with a GPU, I used node affinities to match the workload up with a node labeled `gpu-node`.
+
 
 ## Improvements
 

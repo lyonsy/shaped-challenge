@@ -10,4 +10,10 @@ For network isolation between environments, the simplest approach is to just hav
 
 With GCP, you could also separate the environments by project. My understanding is that this is kind of similar to having a separate AWS account for each environment. It would allow you to easily see costs, usage etc across environments. In the case of this challenge, I just kept everything in the same project to keep it simple.
 
-GCP would not allow me to deploy a cluster with GPU nodes since I hit a quota limit, I presume I need to spend a bit more money with them before they will allow me to request more. The logic in the helm chart should demonstrate that this 
+GCP would not allow me to deploy a cluster with GPU nodes since I hit a quota limit, I presume I need to spend a bit more money with them before they will allow me to request more. The logic in the deployer helm chart should demonstrate that this will work if a node is there.
+
+## Metaflow
+
+I spent some time trying to get Metaflow up and running but ran into some issues with the deployment. There is a guide [here](https://outerbounds.com/engineering/deployment/gcp-k8s/deployment/) that essentially does everything for you but I wanted to avoid that for the sake of the challenge.
+
+I opted to try and get it installed using helm. They have helm charts [here](https://github.com/outerbounds/metaflow-tools/tree/master/k8s/helm/metaflow) but they're not as well documented as the other deployment options. After installing, I could get the UI up and running but there was an issue with the database and it was stuck in a restart loop. I plan to open an issue on their repo but for now I decided to not spend anymore time with this.

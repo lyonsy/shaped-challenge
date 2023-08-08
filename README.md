@@ -20,7 +20,7 @@ Once the cluster is provisioned the terraform apply will fail on installing Argo
 
 ## Argo
 
-With Argo installed, we can use port forwarding to view the Argo UI by running the following command: `kubectl -n argo port-forward deployment/argo-workflows-server 2746:2646`
+With Argo installed, we can use port forwarding to view the Argo UI locally by running the following command: `kubectl -n argo port-forward deployment/argo-workflows-server 2746:2646` and heading to `http://127.0.0.1:2746`
 
 ## Deploying a service
 
